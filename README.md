@@ -1,2 +1,2 @@
 # Conway-s-Game-of-Life
-A recreation of Conway's Game of Life. 
+I re-created is a cellular automation created by mathematician John Horton Conway. It is a zero-player game in which each generation or stage in the simulation is determined by preset rules. The program allows the user to select any number of cells to be alive and can be run indefinitely. Substantial time was spent creating an infinite plane that allows for an infinite number of cells to be selected and simulated. Some additional features include the ability to zoom in and out and pan around the environment. In the future, I plan to further optimize the program to allow for more and more cells to be simulated at a time. 
