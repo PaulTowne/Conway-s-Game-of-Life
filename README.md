@@ -14,7 +14,9 @@ Controls:
 - Spacebar: starts or pauses the game
 
 How it works:
+
 Every second, the game evaluates the positions of "live" cells, and determines which ones will survive or perish. Each second or "timestep" is known as a generation. By pausing the game, the user can select any number of cells to be "alive". Unpausing will continue the game, and the user will see how their initial cells change and affect the future generations. 
 
 The Future?:
+
 I plan to further optimize the program to allow for more and more cells to be simulated at a time. Currently, the program, however hard I tried, is still quite inefficient, which limits how many cells can be simulated at a time. I also plan to add a welcome screen as well as buttoms to make the controls more user friendly. 
