@@ -8,7 +8,7 @@ The 4 Rules:
 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
 Controls:
-- Left Click: Selects or deselects cells.
+- Left Click: Selects or de-selects cells.
 - WASD keys: allows user to pan around environment
 - Scroll Wheel: allows user to zoom in and out.
 - Spacebar: starts or pauses the game
