@@ -16,12 +16,13 @@ public class AliveCell
     private int ypos;
     private Color c= Color.blue;
     private boolean alive = true;
-
+    //constructor
     public AliveCell(int x, int y)
     {
         xpos = x;
         ypos = y;
     }
+    //drawing method to fill in square
     public void draw(Graphics g,int size,Reference r)
     {
         g.setColor(c);
