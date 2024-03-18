@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.*;
 import java.util.List;
+
+// This class is a copy of the panel class with a slight change in the calculate function. This program runs slightly faster than the original panel file.
+// I changed how I grouped the cells together and how I deleted or created cells. I tried to eliminate places where I was unnecessarily transferring objects from one place to another.
+
+
 public class panelOptimize extends JPanel
 {
     boolean w; 
