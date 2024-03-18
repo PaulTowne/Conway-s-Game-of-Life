@@ -10,27 +10,30 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.*;
+
+// This is my first working version of the game. The timer is not set, which means the spacebar controls how the generations are iterated through. 
 public class panelv2 extends JPanel
 {
+    // creates movement variables
     boolean w;
     boolean a;
     boolean d;
     boolean s;
     boolean space=false;
     int accelerate = 0;
-
+    // object storage
     ArrayList<AliveCell> matrix = new ArrayList<AliveCell>();
     ArrayList<DeadCell> deadCells = new ArrayList<DeadCell>();
     ArrayList<AliveCell> copy = new ArrayList<AliveCell>();
     ArrayList<AliveCell> nowAlive = new ArrayList<AliveCell>();
-
+    // time and scaling
     int scale =20;
     Timer t;
     Timer t2;
 
     // create a reference cell which doesnt move. but it stores the offsets
     Reference ref = new Reference();
-
+    // constructor
     public panelv2()
     {
         addKeyListener(new KeyEventDemo());
@@ -47,28 +50,13 @@ public class panelv2 extends JPanel
 
         
     }
-    // make it where I can scale the size of the viewing window. make so i can pan around the environment. set different speeds, 
-    
-    // wasd will change the position of every alive square, we wont have to actually edit the map per say.
-    // we also change depending on the scale shift
-
-    // lets make a universal shift towards the center. so we keep everything consistent. separate logic of scaling of cells and grids, work them independently
     void moveObjects(int notch)
     {
         
     }
-    
-    // lets create a 2d arraylist where I can sort the cells. This will allow me to most effectively see which cells are near each other. 
-    // or make multiple arralists where each one is like a chunk of cells that are within some distance of any of the cells in the array. so like a cell
-    // will be tested to see if it is near any of them, if not itll make a new arraylist.
-    // we check the deadcells algorithm for each arraylist individually so we dont have to check them if they are super far away.
-    // we keep making arraylists to make room, but delete arraylists that are like smaller or like we can combine with others. 
-    // we need to every so often check to see if arraylists need to combine.// or we kick out objects that get too far from the average position of the list 
-    // we can also compare the average distances of other arraylists and see if they are near each other.  
-
+    // does all the heavy lifting for computing which cells survive or die out.
     void calculate()
     {
-        // we still need to split it up a bit to help out. I think we have to brute force something somewhere. 
         copy.clear();
         for(int i=0;i<matrix.size();i++)
         {
@@ -81,6 +69,7 @@ public class panelv2 extends JPanel
         int loop = 0;
         double variabledist = 10;
         boolean added = false;
+        // this breaks up the live cells into separate arraylists so that it is easier to check for collisions between them.
         while(!copy.isEmpty())
         {
             //System.out.println("in while loop");
@@ -94,6 +83,7 @@ public class panelv2 extends JPanel
             range.add(new ArrayList<AliveCell>());
             range.get(loop).add(copy.get(randomChoice));
             copy.remove(randomChoice);
+            // loops until every live cell is in an arraylist.
             do{
                 //System.out.println("in do while loop");
                  added = false;
@@ -119,10 +109,7 @@ public class panelv2 extends JPanel
             
             loop++;
         }
-        // print out the lists separate each sublist so i can see which squares are in which groups 
-        // we need to check that the deadcells ar ealso checking for adjecent cells that are just on the border
-        // we may need to increase variabledist if it isnt working
-
+        // print block to check for lost data
         //System.out.println("-----------------------------------------------------------------");
         for(int i=0;i<range.size();i++)
         {
@@ -133,6 +120,7 @@ public class panelv2 extends JPanel
             }
             //System.out.println();
         }
+        // checks for over/under population.
         int neighbor=0;
         for(int i=0;i<range.size();i++)
         {
@@ -169,6 +157,7 @@ public class panelv2 extends JPanel
         }
 
         // now we check for cells that reproduce. 
+        // This is checking all the neighbor cells which could come alive due to reproduction.
         nowAlive.clear();
         for(int i=0;i<range.size();i++)
         {
@@ -211,6 +200,7 @@ public class panelv2 extends JPanel
             //System.out.println();
             // lets now loop over the temp array and look for duplicates
             int dup = 0;
+            // deals with duplicates and adds "nowAlive" cells to the main arraylist.
             for(int j=0;j<temp.size();j++)
             {
                 dup =0;
@@ -287,6 +277,7 @@ public class panelv2 extends JPanel
     {
         return false;
     }
+    // controls all the graphics.
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g); 
@@ -326,6 +317,8 @@ public class panelv2 extends JPanel
         
         //System.out.println("matrix size = "+matrix.size());
     }
+
+    // action listener that controls traversing the plane by changing the reference.
     public class TimeListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
@@ -361,6 +354,7 @@ public class panelv2 extends JPanel
 
         }
     }
+    // adds or deletes cells based on user's choice.
     public class MouseClick extends MouseInputAdapter
     {
         public void mousePressed(MouseEvent me)
@@ -402,6 +396,7 @@ public class panelv2 extends JPanel
 
         }
     }
+    // allows for zooming in and out of plane.
     public class MouseWheel implements MouseWheelListener 
     {
         
@@ -424,6 +419,7 @@ public class panelv2 extends JPanel
            }
         }
     }
+    // checks for wasd keys which control movement of plane.
     public class KeyEventDemo implements KeyListener
     {
         public void keyTyped(KeyEvent e){}
