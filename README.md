@@ -19,4 +19,4 @@ Every second, the game evaluates the positions of "live" cells, and determines w
 
 The Future?:
 
-I plan to further optimize the program to allow for more and more cells to be simulated at a time. Currently, the program, however hard I tried, is still quite inefficient, which limits how many cells can be simulated at a time. I also plan to add a welcome screen as well as buttoms to make the controls more user friendly. 
+This project, as with many of my projects, is a work in progress. There is plenty of work to be done to make the code cleaner and more efficient. I plan to further optimize the program to allow for more and more cells to be simulated at a time. Currently, the program, however hard I tried, is still quite inefficient, which limits how many cells can be simulated at a time. I also plan to add a welcome screen as well as buttoms to make the controls more user friendly. 
