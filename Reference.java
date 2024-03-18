@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.*;
 
+// this class ended up not being used but may be in future development.
 public class Reference 
 {
     // reference is set at 0,0 upon creation. The values will never change. what will change is the offset, which will graphically change up stuff. like you take the x and y and add the 
