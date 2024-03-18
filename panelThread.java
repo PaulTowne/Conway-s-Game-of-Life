@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.*;
 import java.util.List;
+
+// This is another attempt to optimize the program. I was never taught multi threading in a class, but I understood that I has the ability to make programs really efficient. So I used chatGPT and other sources to try
+// to implement threading in this program. It sort of worked, but there are some nuanced cases where the program crashes, so I still need to debug it. 
+
+
 public class panelThread extends JPanel
 {
     boolean w;
