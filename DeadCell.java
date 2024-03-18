@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.*;
 
+// DeadCell class to create neighbors for each live cell. 
+// Carbon copy of alivecell class.
 public class DeadCell 
 {
     // make the logic position consistant so we can easily scale it for size.
