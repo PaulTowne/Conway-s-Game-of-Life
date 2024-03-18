@@ -10,6 +10,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.*;
+
+// This is my first iteration of the program. This version does not work, but I used it a lot for testing different algorithms. 
+
 public class panel extends JPanel
 {
     // global variables
